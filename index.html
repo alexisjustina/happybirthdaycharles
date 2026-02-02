@@ -8,7 +8,7 @@
 <!-- <script defer src="script.js"></script> -->
 </head>
 <style>
-    * {
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -69,6 +69,8 @@ body { overflow-x: hidden; background-color: black; }
 
 h1 {
   font-size: 3.5rem;
+  /* font-size: clamp(2rem, 6vw, 3.5rem); */
+  text-align: center;
   color: rgb(194, 24, 91);
   animation: floatText 3s ease-in-out infinite;
   z-index: 2;
@@ -96,7 +98,9 @@ text-shadow: 0 0 4px rgba(194, 24, 91, 0.6), 0 0 8px rgba(194, 24, 91, 0.4);
 .subtitle {
   margin-top: 10px;
   font-size: 1.3rem;
-  color: #8e244d;
+  /* font-size: clamp(1rem, 3.5vw, 1.3rem); */
+  text-align: center;
+  color: #e95d92;
   z-index: 2;
   font-weight: bold;
 }
@@ -119,29 +123,7 @@ text-shadow: 0 0 4px rgba(194, 24, 91, 0.6), 0 0 8px rgba(194, 24, 91, 0.4);
   width: 26px;
   height: 26px;
   animation: fall 10s linear infinite;
-}
-
-.petal {
-  position: absolute;
-  width: 14px;
-  height: 14px;
-  background: #ff6fa5;
-  border-radius: 50%;
-}
-
-.petal:nth-child(1) { top: 0; left: 6px; }
-.petal:nth-child(2) { bottom: 0; left: 6px; }
-.petal:nth-child(3) { left: 0; top: 6px; }
-.petal:nth-child(4) { right: 0; top: 6px; }
-
-.center {
-  position: absolute;
-  top: 7px;
-  left: 7px;
-  width: 12px;
-  height: 12px;
-  background: #ffd54f;
-  border-radius: 50%;
+  font-size: 30px;
 }
 
 @keyframes fall {
@@ -210,8 +192,8 @@ button:hover { transform: scale(1.08); }
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(253, 74, 164, 0.87), transparent 70%);
-    filter: blur(8px);
+    background: radial-gradient(circle, rgba(223, 24, 57, 0.911), transparent 70%);
+    filter: blur(5px);
     animation: twinkle 2s ease-in-out infinite alternate;
 }
 
@@ -507,13 +489,70 @@ button:hover { transform: scale(1.08); }
 
 /* queries */
 
-@media only screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait) {
+/* @media only screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait) {
     #page2{
         padding: 4rem;
     }
     .envelope.open .letter{
          bottom: -370px;
     }
+    .gradient-circle{
+        width: 200px;
+        height: 200px;
+    }
+} */
+
+@media (max-width:600px) {
+    /* .teddy{
+        font-size: 60px;
+    }
+    button{
+        padding: 12px 12px;
+        font-size: 1rem;
+    } */
+    .gradient-circle{
+        width: 230px;
+        height: 230px;
+        filter: blur(50px);
+    }
+}
+
+@media (max-width: 768px){
+    .envelope.open .letter{
+        bottom: -370px;
+    }
+}
+
+@media (max-width: 400px) {
+
+
+  .envelope.open .letter {
+    bottom: -370px;
+  }
+}
+
+@media (max-width: 600px) {
+  .balloon {
+    width: 26px;
+    height: 36px;
+  }
+
+  .flower-css {
+    font-size: 22px;
+  }
+}
+
+
+/* html{
+    font-size: 16px;
+}
+img, video{
+    max-width: 100%;
+    height: auto;
+} */
+
+.page{
+    padding: 1rem;
 }
 </style>
 <body>
@@ -531,11 +570,11 @@ button:hover { transform: scale(1.08); }
   <button onclick="goNext()">Continue</button>
 
   <!-- MODERATE FLOWERS -->
-  <div class="flower-css" style="left:10%; animation-delay:0s"><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="center"></div></div>
-  <div class="flower-css" style="left:30%; animation-delay:2s"><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="center"></div></div>
-  <div class="flower-css" style="left:55%; animation-delay:4s"><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="center"></div></div>
-  <div class="flower-css" style="left:80%; animation-delay:1s"><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="center"></div></div>
-
+  <div class="flower-css" style="left:10%; animation-delay:0s">🌸</div>
+  <div class="flower-css" style="left:30%; animation-delay:2s">🌸</div>
+  <div class="flower-css" style="left:55%; animation-delay:4s">🌸</div>
+  <div class="flower-css" style="left:80%; animation-delay:1s">🌸</div>
+   
   <!-- BALLOONS -->
   <div class="balloon red" style="left:15%; animation-delay:0s"></div>
   <div class="balloon blue" style="left:35%; animation-delay:3s"></div>
@@ -621,3 +660,4 @@ function openEnvelope(el) {
 }
 </script>
 </html>
+
